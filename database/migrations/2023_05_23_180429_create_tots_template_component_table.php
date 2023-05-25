@@ -21,6 +21,7 @@ return new class extends Migration
             $table->tinyInteger('type')->nullable(false)->default(0);
             $table->tinyInteger('status')->nullable(false)->default(0);
             $table->json('data')->nullable(true);
+            $table->longText('html')->nullable(true);
             $table->longText('css')->nullable(true);
             $table->longText('js')->nullable(true);
             $table->timestamps();
