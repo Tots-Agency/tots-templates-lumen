@@ -1,6 +1,6 @@
 <?php
 
-namespace Tots\Blog\Providers;
+namespace Tots\Templates\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
