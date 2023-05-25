@@ -8,7 +8,8 @@
         "laravel/lumen-framework": "^10.0",
         "tots/auth-lumen": "dev-main",
         "tots/core-lumen": "dev-main",
-        "tots/elofilter-lumen": "dev-main"
+        "tots/elofilter-lumen": "dev-main",
+        "illuminate/view": "^10.12"
     },
     "license": "MIT",
     "autoload": {
