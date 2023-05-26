@@ -13,6 +13,9 @@ class TemplateServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Register providers
+        $this->app->register(\Illuminate\View\ViewServiceProvider::class);
+
         // Register migrations
         if($this->app->runningInConsole()){
             $this->registerMigrations();
