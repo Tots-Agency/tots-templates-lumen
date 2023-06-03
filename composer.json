@@ -9,7 +9,8 @@
         "tots/auth-lumen": "dev-main",
         "tots/core-lumen": "dev-main",
         "tots/elofilter-lumen": "dev-main",
-        "illuminate/view": "^10.12"
+        "illuminate/view": "^10.12",
+        "voku/simple_html_dom": "^4.8"
     },
     "license": "MIT",
     "autoload": {
