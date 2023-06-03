@@ -22,8 +22,10 @@ class TotsCustomViewComponent extends Component
 
     public function render()
     {
+        // Return only HTML process blade in service.
+        return $this->component->html;
         //$html = '<h1>Prueba de primera vista</h1><p>Resultado: {{ customFunction(5, 10) }}</p>';
-        return Blade::render($this->component->html, ['name' => 'Julian Bashir', 'customFunction' => 'myCustomFunction']);
+        //return Blade::render($this->component->html, ['name' => 'Julian Bashir', 'customFunction' => 'myCustomFunction']);
     }
 
     public function myCustomFunction($param1, $param2)
