@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class FetchCurrentController extends \Laravel\Lumen\Routing\Controller
 {
-    public function handle($id, Request $request)
+    public function handle(Request $request)
     {
         // Get Page
         $page = $request->input(TotsPage::class);
