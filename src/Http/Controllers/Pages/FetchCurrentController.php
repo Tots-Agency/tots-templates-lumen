@@ -16,6 +16,9 @@ class FetchCurrentController extends \Laravel\Lumen\Routing\Controller
         $data = $page->load(['component', 'template'])->toArray();
         // Init Service
         $service = new TotsComponentService();
+        if($page->data != null){
+            $service->setGlobalParams($page->data);
+        }
         // Process HTML
         $data['component']['html'] = $service->renderHtml($page->component);
         // Return Data
