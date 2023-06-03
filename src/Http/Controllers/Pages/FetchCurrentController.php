@@ -4,6 +4,7 @@ namespace Tots\Templates\Http\Controllers\Pages;
 
 use Tots\Templates\Models\TotsPage;
 use Illuminate\Http\Request;
+use Tots\Templates\Services\TotsComponentService;
 
 class FetchCurrentController extends \Laravel\Lumen\Routing\Controller
 {
@@ -11,7 +12,13 @@ class FetchCurrentController extends \Laravel\Lumen\Routing\Controller
     {
         // Get Page
         $page = $request->input(TotsPage::class);
-        // return page
-        return $page->load(['component', 'template']);
+        // Convert To Array
+        $data = $page->load(['component', 'template'])->toArray();
+        // Init Service
+        $service = new TotsComponentService();
+        // Process HTML
+        $data['component']['html'] = $service->renderHtml($page->component);
+        // Return Data
+        return $data;
     }
 }
