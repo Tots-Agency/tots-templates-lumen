@@ -105,7 +105,4 @@ class TotsComponent extends Model
     {
         return $this->belongsTo(TotsTemplate::class, 'template_id');
     }
-
-
-    
 }

@@ -51,9 +51,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TotsFunction extends Model
 {
+    const TYPE_LAST_ROWS_IN_DATABASE = 1;
+
     protected $table = 'tots_function';
     
-    //protected $casts = ['data' => 'array'];
+    protected $casts = ['data' => 'array'];
     /**
      * Indicates if the model should be timestamped.
      *

@@ -4,6 +4,7 @@ namespace Tots\Templates\Services;
 
 use Illuminate\Support\Facades\Blade;
 use Tots\Templates\Models\TotsComponent;
+use Tots\Templates\Models\TotsFunction;
 use Tots\Templates\Views\TotsCustomViewComponent;
 use voku\helper\HtmlDomParser;
 
@@ -15,10 +16,29 @@ class TotsComponentService
     {
         // Get all include components
         $components = $this->fetchAllIncludesBytemplate($component->template_id);
+        // Process all functions
+        $params = $this->processFunctions($component, $components);
         // Process all components includes
         $html = $this->processComponents($component, $components);
         // Convert to Blade
-        return Blade::render($html, array_merge($this->globalParams, $component->data));
+        return Blade::render($html, array_merge($this->globalParams, $component->data, $params));
+    }
+
+    public function processFunctions(TotsComponent $component)
+    {
+        // Aca traer solo las funciones de ese componente
+        //$functions = $component->functions;
+        $functions = TotsFunction::all();
+        $params = [];
+        foreach ($functions as $function) {
+            $params = array_merge($params, (new TotsFunctionService($function, $this->globalParams))->execute());
+        }
+        return $params;
+    }
+
+    public function processFunction($params, TotsComponent $component, $parentParams = [])
+    {
+        
     }
 
     public function processComponents(TotsComponent $component, $components)
